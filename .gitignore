@@ -1,0 +1,16 @@
+# binary
+band-name-generator
+
+# ide
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# os
+.DS_Store
+Thumbs.db
+
+# environment
+.env
+.env.*

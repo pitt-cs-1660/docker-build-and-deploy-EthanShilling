@@ -1,0 +1,9 @@
+.git
+.github
+.gitignore
+.dockerignore
+.idea
+.vscode
+docs
+README.md
+grade.sh

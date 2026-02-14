@@ -1,0 +1,19 @@
+name: Grading
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  grade:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: run grading script
+        run: |
+          chmod +x grade.sh
+          bash grade.sh ${{ github.workspace }}

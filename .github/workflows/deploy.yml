@@ -1,0 +1,35 @@
+name: Build and Push to ECR
+
+on:
+  push:
+    branches: [main]
+
+env:
+  ACCOUNT_ID: "" # set your aws account id
+  REGION: "" # set your aws region (e.g., us-east-1)
+  REPO_NAME: "" # set your ecr repository name
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.REGION }}
+
+      - name: login to amazon ecr
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: build, tag, and push to ecr
+        run: |
+          # todo: replace this step with your docker build, tag, and push commands
+          # refer to docs/docker-commands.md for guidance on the required commands
+          echo "docker build, tag, and push commands not implemented"
+          exit 1
